@@ -325,21 +325,53 @@ h2::after {
     background-color: var(--primary-accent);
 }
 .skill-item {
-    padding: 2rem;
+    padding: 1.5rem 1rem;
     text-align: center;
     background-color: var(--surface);
     border-radius: 15px;
     box-shadow: var(--shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s ease,
+                background-color 0.3s ease;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
+
+.skill-item:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(124, 58, 237, 0.3);
+    background-color: var(--primary);
+}
+
 .skill-item img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 1rem;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0.75rem;
+    object-fit: contain;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
+
+.skill-item:hover img {
+    transform: scale(1.2) rotateY(360deg);
+    filter: brightness(1.2);
+}
+
 .skill-item p {
     font-weight: 600;
     margin: 0;
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.2;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.skill-item:hover p {
+    color: var(--text-light);
+    transform: translateY(-2px);
 }
 .contact-links {
     display: flex;
@@ -566,49 +598,615 @@ footer {
         grid-template-columns: 1fr;
     }
 }
-@media (max-width: 480px) {
-  .contact-links {
-    gap: 1rem;
-    flex-wrap: wrap;
+/* Base skill grid styles */
+.skill-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skill-item {
+    padding: 1.5rem 1rem;
+    text-align: center;
+    background-color: var(--surface);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+                box-shadow 0.3s ease,
+                background-color 0.3s ease;
+    height: 140px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-  }
+    align-items: center;
+    cursor: pointer;
+}
 
-  .contact-links a img {
-    width: 40px;
-    height: 40px;
-  }
-  .skill-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
-  }
+.skill-item:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 12px 30px rgba(124, 58, 237, 0.3);
+    background-color: var(--primary);
+}
 
-  .skill-item {
-    padding: 1rem 0.5rem;
-  }
+.skill-item img {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0.75rem;
+    object-fit: contain;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
 
-  .skill-item img {
-    width: 40px;
-    height: 40px;
-    margin-bottom: 0.5rem;
-  }
+.skill-item:hover img {
+    transform: scale(1.2) rotateY(360deg);
+    filter: brightness(1.2);
+}
 
-  .lefthome h1 {
+.skill-item p {
+    font-weight: 600;
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text);
+    line-height: 1.2;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.skill-item:hover p {
+    color: var(--text-light);
+    transform: translateY(-2px);
+}
+
+/* Project Cards - Replace your existing project CSS with this */
+.project-card {
+    border: 1px solid var(--shadow);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: var(--surface);
+    height: 420px;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(124, 58, 237, 0.2);
+}
+
+.project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.project-info {
+    padding: 1.5rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-info h3 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.project-info p {
+    margin: 0 0 1rem 0;
+    color: var(--text);
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+/* Tech Stack */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1rem;
+}
+
+.tech-tag {
+    background: var(--primary);
+    color: var(--text-light);
+    padding: 0.2rem 0.6rem;
+    border-radius: 15px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Project Buttons */
+.project-buttons {
+    display: flex;
+    gap: 0.75rem;
+    margin-top: auto;
+}
+
+.btn-primary, .btn-secondary {
+    flex: 1;
+    display: inline-block;
+    text-align: center;
+    text-decoration: none;
+    padding: 0.7rem 1rem;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--secondary);
+    color: var(--text-light);
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-accent);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--primary);
+    border: 1px solid var(--primary);
+}
+
+.btn-secondary:hover {
+    background-color: var(--primary);
+    color: var(--text-light);
+    transform: translateY(-2px);
+}
+
+/* Modern Contact Section Styling */
+.contact {
+    padding: 5rem 1rem;
+    background: linear-gradient(135deg, var(--background) 0%, var(--surface) 50%, var(--background) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 30% 20%, rgba(96, 165, 250, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 70% 80%, rgba(168, 139, 250, 0.1) 0%, transparent 50%);
+    pointer-events: none;
+}
+
+.contact > * {
+    position: relative;
+    z-index: 1;
+}
+
+.contact h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-align: center;
+}
+
+.contact-subtitle {
+    font-size: 1.3rem;
+    color: var(--text-muted);
+    margin-bottom: 4rem;
+    text-align: center;
+    font-weight: 300;
+}
+
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+    max-width: 1100px;
+    margin: 0 auto 4rem auto;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    padding: 2.5rem;
+    background: var(--surface);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: left 0.6s ease;
+}
+
+.contact-item:hover::before {
+    left: 100%;
+}
+
+.contact-item:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(124, 58, 237, 0.2);
+}
+
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 2rem;
-    margin-left: 0; /* Ensure no left margin */
-  }
+    color: var(--text-light);
+    flex-shrink: 0;
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+    transition: transform 0.3s ease;
+}
 
-  .lefthome .subtitle {
+.contact-item:hover .contact-icon {
+    transform: rotate(10deg) scale(1.1);
+}
+
+.contact-details {
+    flex: 1;
+}
+
+.contact-details h4 {
+    margin: 0 0 0.75rem 0;
+    color: var(--text);
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.contact-details p,
+.contact-details a {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.contact-details p {
+    color: var(--text-muted);
+}
+
+.contact-details a {
+    color: var(--primary);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.contact-details a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    transition: width 0.3s ease;
+}
+
+.contact-details a:hover::after {
+    width: 100%;
+}
+
+.contact-details a:hover {
+    color: var(--secondary);
+}
+
+.social-links {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+
+.social-links h3 {
+    color: var(--text);
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.8rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.linkedin {
+    background: rgba(14, 118, 168, 0.1);
+    color: #0e76a8;
+}
+.linkedin:hover {
+    background: #0e76a8;
+    color: white;
+}
+
+.email {
+    background: rgba(234, 67, 53, 0.1);
+    color: #ea4335;
+}
+.email:hover {
+    background: #ea4335;
+    color: white;
+}
+
+.github {
+    background: rgba(51, 51, 51, 0.1);
+    color: #333;
+}
+.github:hover {
+    background: #333;
+    color: white;
+}
+
+.whatsapp {
+    background: rgba(37, 211, 102, 0.1);
+    color: #25d366;
+}
+.whatsapp:hover {
+    background: #25d366;
+    color: white;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .contact {
+        padding: 3rem 1rem;
+    }
+
+    .contact h2 {
+        font-size: 2rem;
+    }
+
+    .contact-methods {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .contact-item {
+        padding: 1.5rem;
+        gap: 1rem;
+    }
+
+    .contact-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+
+    .social-link {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .contact-icon {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+
+    .social-icons {
+        gap: 1rem;
+    }
+
+    .social-link {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
+    }
+}
+
+/* Contact Section - Clean and Simple */
+.contact {
+    padding: 4rem 1rem;
+    background: var(--background);
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+
+.contact-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-methods {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto 3rem auto;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem;
+    background: var(--surface);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
+
+.contact-item:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-hover);
+}
+
+.contact-icon {
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    color: var(--text-light);
+    flex-shrink: 0;
+}
+
+.contact-details h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text);
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.contact-details p {
+    margin: 0;
+    color: var(--text-muted);
     font-size: 1rem;
-    margin-left: 0; /* Ensure no left margin */
-  }
+}
 
-  .lefthome button {
-    margin-left: 0; /* Ensure no left margin */
-    padding: 0.7rem 1.5rem;
-  }
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 2rem 1.5rem; /* Reduced horizontal padding */
+    background: var(--surface);
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: left;
+}
 
-  .home img {
-    width: 150px;
-    height: 150px;
-  }
+.contact-details a:hover {
+    color: var(--secondary);
+}
+
+.social-links {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+.social-links h3 {
+    color: var(--text);
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.social-link {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    font-size: 1.8rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.social-link:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Social Link Colors */
+.linkedin {
+    background: rgba(14, 118, 168, 0.1);
+    color: #0e76a8;
+}
+
+.linkedin:hover {
+    background: #0e76a8;
+    color: white;
+}
+
+.email {
+    background: rgba(234, 67, 53, 0.1);
+    color: #ea4335;
+}
+
+.email:hover {
+    background: #ea4335;
+    color: white;
+}
+
+.github {
+    background: rgba(51, 51, 51, 0.1);
+    color: #333;
+}
+
+.github:hover {
+    background: #333;
+    color: white;
+}
+
+.whatsapp {
+    background: rgba(37, 211, 102, 0.1);
+    color: #25d366;
+}
+
+.whatsapp:hover {
+    background: #25d366;
+    color: white;
 }
