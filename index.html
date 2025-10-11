@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale">
-
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Syed Ajmal | React.js Developer & Frontend Engineer</title>
     <meta name="title" content="Syed Ajmal | React.js Developer & Frontend Engineer">
     <meta name="description" content="Syed Ajmal - Passionate React.js Developer and Frontend Engineer with expertise in HTML, CSS, JavaScript, React, MongoDB, and TailwindCSS. Currently pursuing Master's in Computer Science at Pondicherry University.">
@@ -14,12 +13,28 @@
     <meta name="language" content="English">
     <meta name="revisit-after" content="7 days">
 
-    <!-- Canonical URL -->
-    <link rel="canonical" href="https://your-domain.com/">
-
-
-
-
+    <!-- Prevent flash of light theme -->
+    <script>
+        (function() {
+            const theme = localStorage.getItem('theme') || 'dark';
+            document.documentElement.setAttribute('data-theme', theme);
+            document.body.setAttribute('data-theme', theme);
+            document.documentElement.style.colorScheme = theme;
+            // Set initial icon state
+            window.addEventListener('DOMContentLoaded', () => {
+                const themeIcon = document.querySelector('#theme-toggle i');
+                if (themeIcon) {
+                    if (theme === 'dark') {
+                        themeIcon.classList.remove('fa-moon');
+                        themeIcon.classList.add('fa-sun');
+                    } else {
+                        themeIcon.classList.remove('fa-sun');
+                        themeIcon.classList.add('fa-moon');
+                    }
+                }
+            });
+        })();
+    </script>
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/logo.png">
@@ -30,7 +45,7 @@
     <!-- Stylesheets -->
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  
+
 
     <!-- Preload critical resources -->
     <link rel="preload" href="./assets/img/naatha.jpg" as="image">
@@ -39,15 +54,13 @@
 
 </head>
 
-<body id="headerlink" data-theme="dark">
+<body id="headerlink" >
     <header>
         <nav>
             <div class="logo-container">
                 <img class="logo" src="assets/icons/logo.png" alt="logo">
             </div>
-            <button class="nav-toggle" aria-label="Toggle navigation">
-                &#9776;
-            </button>
+
             <ul>
                 <li><a href="#headerlink">Home</a></li>
                 <li><a href="#aboutlink">About</a></li>
@@ -56,24 +69,30 @@
                 <li><a href="#certificateslink">Certificates</a></li>
                 <li><a href="#contactlink">Contact</a></li>
             </ul>
-            <button id="theme-toggle" aria-label="Toggle theme">
-                <i class="fa-solid fa-moon"></i>
-            </button>
+
+            <div class="nav-controls">
+                <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-navigation" title="Toggle menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
         </nav>
     </header>
     <main>
-        <section class="home" id="home">
-            <div class="lefthome animate-on-scroll">
-                <h1>Syed Ajmal</h1>
-                <h2 class="subtitle">I'm React.js Developer</h2>
-                <a href="assets/files/Ajmal resume doc.pdf" download aria-label="Download Syed Ajmal's CV"><button>Download CV</button></a>
-            </div>
-            <div class="righthome animate-on-scroll">
+    <section class="home" id="home">
+            <div class="righthome">
                 <img src="./assets/img/naatha.jpg" alt="Syed Ajmal - React.js Developer and Frontend Engineer profile photo" loading="eager">
+            </div>
+            <div class="lefthome">
+                <h1>Syed Ajmal</h1>
+                <p class="subtitle">I'm React.js Developer</p>
+                <a href="assets/files/Ajmal resume doc.pdf" download aria-label="Download Syed Ajmal's CV"><button>Download CV</button></a>
             </div>
         </section>
 
-        <section class="about-section animate-on-scroll" id="aboutlink">
+    <section class="about-section" id="aboutlink">
             <h2>About Me</h2>
             <div class="about-grid">
                 <div class="about-left">
@@ -125,10 +144,10 @@
                 </div>
             </div>
         </section>
-        <section class="projects animate-on-scroll" id="projectlink">
+    <section class="projects" id="projectlink">
             <h2>Projects</h2>
             <div class="project-grid">
-                <article class="project-card animate-on-scroll">
+                <article class="project-card">
                     <img src="assets/img/blog.png" alt="Aj Blog - Modern React blog application screenshot" loading="lazy">
                     <div class="project-info">
                         <h3>Aj Blog</h3>
@@ -137,7 +156,7 @@
                             <span class="tech-tag">React</span>
                             <span class="tech-tag">JavaScript</span>
                             <span class="tech-tag">TailwindCSS</span>
-                            <span class="tech-tag">JSON & HTML</span>
+                            <span class="tech-tag">MongoDB</span>
 
 
                         </div>
@@ -148,7 +167,7 @@
                     </div>
                 </article>
 
-                <article class="project-card animate-on-scroll">
+                <article class="project-card">
                     <img src="assets/img/BMI calc.png" alt="BMI Calculator - Responsive Body Mass Index calculator application" loading="lazy">
                     <div class="project-info">
                         <h3>BMI Calculator</h3>
@@ -168,7 +187,7 @@
                     </div>
                 </article>
 
-                <article class="project-card animate-on-scroll">
+                <article class="project-card">
                     <img src="assets/img/lighttheme.png" alt="Portfolio Website - Responsive portfolio with dark/light theme toggle" loading="lazy">
                     <div class="project-info">
                         <h3>Portfolio Website</h3>
@@ -188,80 +207,59 @@
                 </article>
             </div>
         </section>
-        <section class="skills" id="skillslink">
-            <h2 class="animate-on-scroll">Skills</h2>
+    <section class="skills" id="skillslink">
+            <h2>Skills</h2>
             <div class="skill-grid">
-                <div class="skill-item animate-on-scroll"><img src="assets/icons/html-5.png" alt="HTML5 - HyperText Markup Language" loading="lazy">
-                    <p>HTML</p>
-                </div>
-                <div class="skill-item animate-on-scroll"><img src="assets/icons/css-3.png" alt="CSS3 - Cascading Style Sheets" loading="lazy">
-                    <p>CSS</p>
-                </div>
-                <div class="skill-item animate-on-scroll"><img src="assets/icons/js.png" alt="JavaScript - Programming Language" loading="lazy">
-                    <p>JavaScript</p>
-                </div>
-                <div class="skill-item animate-on-scroll"><img src="assets/icons/react.png" alt="React - JavaScript Library" loading="lazy">
-                    <p>React</p>
-                </div>
-                <div class="skill-item animate-on-scroll"><img src="assets/icons/tailwind.png" alt="Tailwind CSS - Utility-first CSS Framework" loading="lazy">
-                    <p>Tailwind</p>
-                </div>
-                <div class="skill-item animate-on-scroll"><img src="assets/icons/seo.png" alt="SEO - Search Engine Optimization" loading="lazy">
-                    <p>SEO</p>
-                </div>
-                <div class="skill-item animate-on-scroll"><img src="assets/icons/vscode.png" alt="Visual Studio Code - Code Editor" loading="lazy">
-                    <p>VSCode</p>
-                </div>
-                <div class="skill-item animate-on-scroll"><img src="assets/icons/git.png" alt="Git - Version Control System" loading="lazy">
-                    <p>Git</p>
-                </div>
-                <div class="skill-item animate-on-scroll"><img src="assets/icons/figma.png" alt="Figma - Design Tool" loading="lazy">
-                    <p>Figma</p>
-                </div>
-                <div class="skill-item animate-on-scroll"> <img src="assets/icons/mongodb.png" alt="MongoDB - NoSQL Database" loading="lazy">
-                    <p>MongoDB</p>
-                </div>
+                <div class="skill-item"><img src="assets/icons/html-5.png" alt="HTML5" loading="lazy"><p>HTML</p></div>
+                <div class="skill-item"><img src="assets/icons/css-3.png" alt="CSS3" loading="lazy"><p>CSS</p></div>
+                <div class="skill-item"><img src="assets/icons/js.png" alt="JavaScript" loading="lazy"><p>JavaScript</p></div>
+                <div class="skill-item"><img src="assets/icons/react.png" alt="React" loading="lazy"><p>React</p></div>
+                <div class="skill-item"><img src="assets/icons/tailwind.png" alt="Tailwind CSS" loading="lazy"><p>Tailwind</p></div>
+                <div class="skill-item"><img src="assets/icons/seo.png" alt="SEO" loading="lazy"><p>SEO</p></div>
+                <div class="skill-item"><img src="assets/icons/vscode.png" alt="VSCode" loading="lazy"><p>VSCode</p></div>
+                <div class="skill-item"><img src="assets/icons/git.png" alt="Git" loading="lazy"><p>Git</p></div>
+                <div class="skill-item"><img src="assets/icons/figma.png" alt="Figma" loading="lazy"><p>Figma</p></div>
+                <div class="skill-item"><img src="assets/icons/mongodb.png" alt="MongoDB" loading="lazy"><p>MongoDB</p></div>
             </div>
         </section>
-        <section class="certificates" id="certificateslink">
-            <h2 class="animate-on-scroll">Certificates</h2>
+    <section class="certificates" id="certificateslink">
+            <h2>Certificates</h2>
             <div class="certificates-grid">
-                <article class="certificate-card animate-on-scroll">
+                <article class="certificate-card">
                     <img src="assets/img/js meta.png" alt="Programming with JavaScript Certificate from Meta" loading="lazy">
                     <h3>Programming with JavaScript</h3>
                     <p>Covered variables, loops, functions, DOM, and event handling fundamentals.</p>
                 </article>
-                <article class="certificate-card animate-on-scroll">
+                <article class="certificate-card">
                     <img src="assets/img/MongoDB.png" alt="MongoDB Certificate from Google" loading="lazy">
                     <h3>MongoDB -- Google</h3>
                     <p>Learned MongoDB basics, CRUD operations, schema design, queries, and scalability.</p>
                 </article>
-                <article class="certificate-card animate-on-scroll">
+                <article class="certificate-card">
                     <img src="assets/img/web dev.png" alt="Web Development Certificate" loading="lazy">
                     <h3>Web Development</h3>
                     <p>Learned HTML, CSS, JavaScript, responsive design, and web development basics.</p>
                 </article>
-                <article class="certificate-card animate-on-scroll">
+                <article class="certificate-card">
                     <img src="assets/img/github.png" alt="Git and GitHub Certificate" loading="lazy">
                     <h3>Git & GitHub</h3>
                     <p>Version control, collaboration, branching, pull requests, open source, workflow.</p>
                 </article>
-                <article class="certificate-card animate-on-scroll">
+                <article class="certificate-card">
                     <img src="assets/img/NPTEL.png" alt="NPTEL Python Certificate" loading="lazy">
                     <h3>The joy of computing using python</h3>
                     <p>Explored Python basics, algorithms, problem-solving, and real-world applications.</p>
                 </article>
-                <article class="certificate-card animate-on-scroll">
+                <article class="certificate-card">
                     <img src="assets/img/linkedin cer.png" alt="LinkedIn Career Skills in Software Development Certificate" loading="lazy">
                     <h3>Career Skills in Software Development</h3>
                     <p>Learned teamwork, communication, problem-solving, agile methods, and essential software development career skills.</p>
                 </article>
             </div>
         </section>
-        <section class="contact animate-on-scroll" id="contactlink">
+    <section class="contact" id="contactlink">
             <h2>Let's Connect</h2>
             <p class="contact-subtitle">Ready to collaborate? Reach out through any of these channels!</p>
-
             <div class="contact-methods">
                 <div class="contact-item">
                     <div class="contact-icon">
@@ -272,7 +270,6 @@
                         <a href="mailto:syedajmal1703@gmail.com">syedajmal1703@gmail.com</a>
                     </div>
                 </div>
-
                 <div class="contact-item">
                     <div class="contact-icon">
                         <i class="fas fa-phone"></i>
@@ -282,7 +279,6 @@
                         <a href="tel:+919080593283">+91 9080593283</a>
                     </div>
                 </div>
-
                 <div class="contact-item">
                     <div class="contact-icon">
                         <i class="fas fa-map-marker-alt"></i>
@@ -293,12 +289,9 @@
                     </div>
                 </div>
             </div>
-
             <div class="social-links">
-                <h3>Follow Me</h3>
                 <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/syedajmal272/" target="_blank" class="social-link linkedin"
-                        title="LinkedIn">
+                    <a href="https://www.linkedin.com/in/syedajmal272/" target="_blank" class="social-link linkedin" title="LinkedIn">
                         <i class="fab fa-linkedin-in"></i>
                     </a>
                     <a href="mailto:syedajmal1703@gmail.com" class="social-link email" title="Email">
@@ -314,8 +307,6 @@
             </div>
         </section>
     </main>
-    <a href="#headerlink" class="backtotop" aria-label="Back to top"><img src="assets/icons/back-to-top.png"
-            alt="Back to top arrow icon" loading="lazy"></a>
     <footer>
         <p>&copy; 2025 Syed Ajmal. All rights reserved.</p>
     </footer>
