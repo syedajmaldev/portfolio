@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to update theme across the site
     function setTheme(theme) {
         // Validate theme
-        theme = theme === 'light' ? 'light' : 'dark';
+        theme = theme === 'dark' ? 'dark' : 'light';
 
         // Update DOM
         document.documentElement.setAttribute('data-theme', theme);
