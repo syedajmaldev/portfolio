@@ -136,3 +136,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 0);
     }
 });
+
+    // Dynamically set the current year in the footer
+    document.addEventListener('DOMContentLoaded', () => {
+        const footer = document.querySelector('footer p');
+        const currentYear = new Date().getFullYear();
+        footer.innerHTML = `&copy; ${currentYear} Syed Ajmal. All rights reserved.`;
+    });
