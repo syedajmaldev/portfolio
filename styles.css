@@ -429,11 +429,11 @@ h2::after {
 
 .home img {
     width: 100%;
-    max-width: 400px;
-    height: auto;
-    aspect-ratio: 1 / 1;
+    max-width: 330px;
+    height: 500px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: center;
     border: 6px solid var(--surface);
     box-shadow: 0 15px 40px rgba(136, 205, 239, 1);
     transition: transform 0.4s ease, box-shadow 0.4s ease;
