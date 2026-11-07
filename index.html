@@ -3,328 +3,769 @@
 
 <head>
     <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Syed Ajmal | React.js Developer & Frontend Engineer</title>
-    <meta name="title" content="Syed Ajmal | React.js Developer & Frontend Engineer">
-    <meta name="description" content="Syed Ajmal - Passionate React.js Developer and Frontend Engineer with expertise in HTML, CSS, JavaScript, React, MongoDB, and TailwindCSS. Currently pursuing Master's in Computer Science at Pondicherry University.">
-    <meta name="keywords" content="Syed Ajmal, React.js Developer, Frontend Developer, Web Developer, JavaScript, HTML, CSS, TailwindCSS, MongoDB, Portfolio, Pondicherry University, Computer Science">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Syed Ajmal | Full-Stack Developer · Next.js, TypeScript &amp; Strapi</title>
+    <meta name="description" content="Syed Ajmal is a Full-Stack Developer at Valopt who builds and ships production web applications with Next.js, TypeScript, Strapi v5 and Node.js, deployed with Docker, cPanel, Vercel and Render.">
+    <meta name="keywords" content="Syed Ajmal, Full-Stack Developer, Next.js Developer, TypeScript, React, Node.js, Strapi v5, Headless CMS, MongoDB, Docker, Valopt, Portfolio">
     <meta name="author" content="Syed Ajmal">
+    <meta name="theme-color" content="#07080c">
 
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Syed Ajmal | Full-Stack Developer">
+    <meta property="og:description" content="Full-Stack Developer at Valopt building production web apps with Next.js, TypeScript and Strapi v5.">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Syed Ajmal | Full-Stack Developer">
+    <meta name="twitter:description" content="Full-Stack Developer at Valopt building production web apps with Next.js, TypeScript and Strapi v5.">
+
+    <!-- Apply the saved (or system) theme before first paint to avoid a flash -->
     <script>
-        (function() {
-            const theme = localStorage.getItem('theme') || 'dark';
-            document.documentElement.setAttribute('data-theme', theme);
-            document.body.setAttribute('data-theme', theme);
-            document.documentElement.style.colorScheme = theme;
-            // Set initial icon state
-            window.addEventListener('DOMContentLoaded', () => {
-                const themeIcon = document.querySelector('#theme-toggle i');
-                if (themeIcon) {
-                    if (theme === 'dark') {
-                        themeIcon.classList.remove('fa-moon');
-                        themeIcon.classList.add('fa-sun');
-                    } else {
-                        themeIcon.classList.remove('fa-sun');
-                        themeIcon.classList.add('fa-moon');
-                    }
-                }
-            });
+        (function () {
+            var root = document.documentElement;
+            var stored = null;
+            try { stored = localStorage.getItem('theme'); } catch (e) { /* storage blocked */ }
+            var prefersLight = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches;
+            var theme = stored === 'light' || stored === 'dark' ? stored : (prefersLight ? 'light' : 'dark');
+            root.setAttribute('data-theme', theme);
+            var meta = document.querySelector('meta[name="theme-color"]');
+            if (meta) meta.setAttribute('content', theme === 'dark' ? '#07080c' : '#fafbfc');
         })();
     </script>
 
-    <link rel="icon" type="image/png" sizes="32x32" href="./assets/icons/logo.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./assets/icons/logo.png">
+    <link rel="icon" type="image/png" href="./assets/icons/logo.png">
     <link rel="apple-touch-icon" href="./assets/icons/logo.png">
-    <link rel="shortcut icon" href="./assets/icons/logo.png" type="image/x-icon">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap">
+
+    <link rel="preload" href="./assets/img/optimized/profile.jpg" as="image" fetchpriority="high">
     <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-
-    <link rel="preload" href="./assets/img/naatha.jpg" as="image">
-    <link rel="preload" href="styles.css" as="style">
-
-
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Syed Ajmal",
+        "jobTitle": "Full-Stack Developer",
+        "worksFor": { "@type": "Organization", "name": "Valopt", "url": "https://valopt.ai" },
+        "email": "mailto:syedajmal1703@gmail.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Cuddalore", "addressCountry": "IN" },
+        "alumniOf": [
+            { "@type": "CollegeOrUniversity", "name": "Pondicherry University" },
+            { "@type": "CollegeOrUniversity", "name": "St. Joseph's College of Arts and Science" }
+        ],
+        "knowsAbout": ["Next.js", "TypeScript", "React", "Node.js", "Strapi", "MongoDB", "Docker", "Tailwind CSS"],
+        "sameAs": ["https://www.linkedin.com/in/syedajmal1703/", "https://github.com/syedajmaldev"]
+    }
+    </script>
 </head>
 
-<body id="headerlink" >
-    <header>
-        <nav>
-            <div class="logo-container">
-                <img class="logo" src="assets/icons/logo.png" alt="logo">
-            </div>
+<body>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-            <ul>
-                <li><a href="#headerlink">Home</a></li>
-                <li><a href="#aboutlink">About</a></li>
-                <li><a href="#projectlink">Projects</a></li>
-                <li><a href="#skillslink">Skills</a></li>
-                <li><a href="#certificateslink">Certificates</a></li>
-                <li><a href="#contactlink">Contact</a></li>
-            </ul>
+    <!-- Icon sprite (inline SVG keeps the page free of icon-font downloads) -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="sprite" aria-hidden="true" focusable="false">
+        <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/></symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+        <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+        <symbol id="i-arrow-right" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></symbol>
+        <symbol id="i-arrow-up-right" viewBox="0 0 24 24"><path d="M7 7h10v10M7 17 17 7"/></symbol>
+        <symbol id="i-arrow-up" viewBox="0 0 24 24"><path d="m5 12 7-7 7 7M12 19V5"/></symbol>
+        <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></symbol>
+        <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+        <symbol id="i-message" viewBox="0 0 24 24"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></symbol>
+        <symbol id="i-briefcase" viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></symbol>
+        <symbol id="i-graduation" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5ZM22 10v6"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></symbol>
+        <symbol id="i-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></symbol>
+        <symbol id="i-code" viewBox="0 0 24 24"><path d="m16 18 6-6-6-6M8 6l-6 6 6 6"/></symbol>
+        <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65M22 12.65l-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+        <symbol id="i-database" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M3 5v14a9 3 0 0 0 18 0V5M3 12a9 3 0 0 0 18 0"/></symbol>
+        <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z"/></symbol>
+        <symbol id="i-zap" viewBox="0 0 24 24"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8Z"/></symbol>
+        <symbol id="i-copy" viewBox="0 0 24 24"><rect x="8" y="8" width="14" height="14" rx="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+        <symbol id="i-check-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="m9 12 2 2 4-4"/></symbol>
+        <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20M2 12h20"/></symbol>
+        <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+        <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5M12 22V12"/></symbol>
+        <symbol id="i-github" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24"><path fill="currentColor" stroke="none" d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></symbol>
+    </svg>
 
-            <div class="nav-controls">
-                <button id="theme-toggle" aria-label="Toggle theme" title="Toggle theme">
-                    <i class="fa-solid fa-moon"></i>
+    <!-- ============================ HEADER ============================ -->
+    <header class="site-header" data-header>
+        <div class="container site-header__inner">
+            <a class="brand" href="#home" aria-label="Syed Ajmal, back to top">
+                <span class="brand__mark" aria-hidden="true">AJ<span>.</span></span>
+                <span class="brand__name">Syed Ajmal</span>
+            </a>
+
+            <nav class="site-nav" id="site-nav" aria-label="Primary">
+                <ul class="nav-links">
+                    <li><a class="nav-link" href="#about">About</a></li>
+                    <li><a class="nav-link" href="#experience">Experience</a></li>
+                    <li><a class="nav-link" href="#projects">Projects</a></li>
+                    <li><a class="nav-link" href="#skills">Skills</a></li>
+                    <li><a class="nav-link" href="#certifications">Certifications</a></li>
+                    <li><a class="nav-link" href="#contact">Contact</a></li>
+                    <li class="nav-links__cta">
+                        <a class="btn btn-primary btn-block" href="./assets/files/Syed_Ajmal_FullStack_Developer.pdf" download="Syed-Ajmal-Full-Stack-Developer-Resume.pdf">
+                            <svg class="icon"><use href="#i-download"/></svg> Download resume
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button class="icon-btn" type="button" data-theme-toggle aria-label="Switch to light theme">
+                    <svg class="icon icon--sun"><use href="#i-sun"/></svg>
+                    <svg class="icon icon--moon"><use href="#i-moon"/></svg>
                 </button>
-                <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-navigation" title="Toggle menu">
-                    <i class="fas fa-bars"></i>
+                <a class="btn btn-secondary btn-sm header-resume" href="./assets/files/Syed_Ajmal_FullStack_Developer.pdf" download="Syed-Ajmal-Full-Stack-Developer-Resume.pdf">
+                    Resume <svg class="icon"><use href="#i-download"/></svg>
+                </a>
+                <button class="icon-btn menu-toggle" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="Open menu">
+                    <svg class="icon icon--menu"><use href="#i-menu"/></svg>
+                    <svg class="icon icon--close"><use href="#i-x"/></svg>
                 </button>
             </div>
-        </nav>
+        </div>
     </header>
-    <main>
-    <section class="home" id="home">
-            <div class="lefthome">
-                <h1>Syed Ajmal</h1>
-                <p class="subtitle">I'm a React.js Developer</p>
-                <a href="./assets/files/Ajmal react dev.pdf" download aria-label="Download Syed Ajmal's CV"><button>Download CV</button></a>
-            </div>
-            <div class="righthome">
-                <img src="./assets/img/naatha.jpeg" alt="Syed Ajmal - React.js Developer and Frontend Engineer profile photo" loading="eager">
+
+    <main id="main">
+        <!-- ============================ HERO ============================ -->
+        <section class="hero" id="home" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="hero__grid">
+                    <div class="hero__copy">
+                        <a class="status-pill" href="#contact">
+                            <span class="pulse" aria-hidden="true"></span>
+                            Open to remote &amp; global opportunities
+                        </a>
+
+                        <h1 class="hero__title" id="hero-title">
+                            <span class="hero__hello">Hi, I'm Syed Ajmal, a Full-Stack Developer.</span>
+                            I build and ship <span class="text-gradient">production web apps</span>, end to end.
+                        </h1>
+
+                        <p class="hero__lead">
+                            Full-Stack Developer at <strong>Valopt</strong>, promoted from Frontend Intern to a full-time
+                            role. I work across the stack with <strong>Next.js, TypeScript and Strapi v5</strong>, and ship to
+                            production with Docker, cPanel, Vercel and Render.
+                        </p>
+
+                        <div class="hero__actions">
+                            <a class="btn btn-primary btn-lg" href="#projects">
+                                View my work <svg class="icon icon--arrow"><use href="#i-arrow-right"/></svg>
+                            </a>
+                            <a class="btn btn-secondary btn-lg" href="./assets/files/Syed_Ajmal_FullStack_Developer.pdf" download="Syed-Ajmal-Full-Stack-Developer-Resume.pdf">
+                                <svg class="icon"><use href="#i-download"/></svg> Download resume
+                            </a>
+                        </div>
+
+                        <div class="hero__meta">
+                            <ul class="socials" aria-label="Social profiles">
+                                <li><a class="social" href="https://github.com/syedajmaldev" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><svg class="icon"><use href="#i-github"/></svg></a></li>
+                                <li><a class="social" href="https://www.linkedin.com/in/syedajmal1703/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><svg class="icon"><use href="#i-linkedin"/></svg></a></li>
+                                <li><a class="social" href="mailto:syedajmal1703@gmail.com" aria-label="Send an email"><svg class="icon"><use href="#i-mail"/></svg></a></li>
+                            </ul>
+                            <span class="hero__location">
+                                <svg class="icon"><use href="#i-map-pin"/></svg> Cuddalore, India · Working remotely
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="hero__visual">
+                        <div class="portrait">
+                            <img src="./assets/img/optimized/profile.jpg" width="720" height="987"
+                                 alt="Portrait of Syed Ajmal, Full-Stack Developer"
+                                 fetchpriority="high" decoding="async">
+                        </div>
+                        <div class="float-card float-card--top" aria-hidden="true">
+                            <span class="float-card__icon"><svg class="icon"><use href="#i-briefcase"/></svg></span>
+                            <span><strong>Full-Stack Developer</strong><span>@ Valopt · Remote</span></span>
+                        </div>
+                        <div class="float-card float-card--bottom" aria-hidden="true">
+                            <span class="float-card__icon"><svg class="icon"><use href="#i-zap"/></svg></span>
+                            <span><strong>Lighthouse 92</strong><span>Loads in under 2.1s</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <ul class="stats" aria-label="Impact highlights at Valopt">
+                    <li class="stat"><strong>95%</strong><span>Faster content updates with custom Strapi models</span></li>
+                    <li class="stat"><strong>92</strong><span>Lighthouse score on the rebuilt company website</span></li>
+                    <li class="stat"><strong>&lt;2.1s</strong><span>Page load time after performance work</span></li>
+                    <li class="stat"><strong>Zero</strong><span>Downtime across managed production releases</span></li>
+                </ul>
             </div>
         </section>
 
-    <section class="about-section"  id="aboutlink">
-            <h2>About Me</h2>
-            <div class="about-grid">
-                <div class="about-left" >
-                    <p class="para_first">Hi, I’m Syed Ajmal, a Frontend Developer and M.Sc. Computer Science student specializing in building high-performance, configuration-driven web applications. Currently, I'm focused on architecting scalable interfaces at Valopt using Next.js, TypeScript, and Strapi, turning complex requirements into seamless user experiences.</p>
-                    <h3>Tech Stack</h3>
-                    <ul>
-                        <li>JavaScript (ES6+), TypeScript, HTML5, CSS3</li>
-                        <li>React.js, Next.js, Tailwind CSS, Shadcn/UI </li>
-                        <li>MongoDB, Strapi CMS (v5), Git, GitHub, Vercel , Render</li>
+        <!-- ============================ ABOUT ============================ -->
+        <section class="section" id="about" aria-labelledby="about-title">
+            <div class="container">
+                <header class="section-head reveal">
+                    <p class="eyebrow"><span class="eyebrow__num">01</span>About</p>
+                    <h2 class="section-title" id="about-title">I own the whole delivery, from interface to infrastructure.</h2>
+                </header>
+
+                <div class="about__grid">
+                    <div class="about__copy reveal">
+                        <p>
+                            I'm a Full-Stack Developer at <strong>Valopt</strong> with one year of hands-on experience building
+                            and shipping production web applications. I joined as a Frontend Developer Intern, delivered a full
+                            rebuild of the company's official website, and earned a full-time offer. Today I own delivery
+                            from the first component to the production deploy.
+                        </p>
+                        <p>
+                            My work spans the stack: interfaces in <strong>Next.js and TypeScript</strong>, content models and
+                            APIs in <strong>Strapi v5</strong>, services containerized with <strong>Docker</strong>, and releases
+                            across cPanel, Vercel and Render. I care about reusable components, measurable performance, and
+                            tools that let non-developers move fast without touching code.
+                        </p>
+
+                        <ul class="facts">
+                            <li class="fact">
+                                <span class="fact__icon"><svg class="icon"><use href="#i-briefcase"/></svg></span>
+                                <span><span class="fact__label">Currently</span><span class="fact__value">Full-Stack Developer, Valopt</span></span>
+                            </li>
+                            <li class="fact">
+                                <span class="fact__icon"><svg class="icon"><use href="#i-graduation"/></svg></span>
+                                <span><span class="fact__label">Education</span><span class="fact__value">M.Sc. Computer Science, Pondicherry University</span></span>
+                            </li>
+                            <li class="fact">
+                                <span class="fact__icon"><svg class="icon"><use href="#i-map-pin"/></svg></span>
+                                <span><span class="fact__label">Based in</span><span class="fact__value">Cuddalore, India</span></span>
+                            </li>
+                            <li class="fact">
+                                <span class="fact__icon"><svg class="icon"><use href="#i-globe"/></svg></span>
+                                <span><span class="fact__label">Open to</span><span class="fact__value">Remote &amp; global roles</span></span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <figure class="code-window reveal" style="--delay: 120ms" aria-label="Developer profile written as a TypeScript object">
+                        <div class="code-window__bar">
+                            <span class="dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                            <span class="code-window__file">developer.ts</span>
+                        </div>
+<pre><code><span class="line"><span class="tok-c">// The short version</span></span>
+<span class="line"><span class="tok-k">export const</span> <span class="tok-v">developer</span> = {</span>
+<span class="line">  <span class="tok-p">name</span>: <span class="tok-s">"Syed Ajmal"</span>,</span>
+<span class="line">  <span class="tok-p">role</span>: <span class="tok-s">"Full-Stack Developer"</span>,</span>
+<span class="line">  <span class="tok-p">company</span>: <span class="tok-s">"Valopt"</span>,</span>
+<span class="line">  <span class="tok-p">frontend</span>: [<span class="tok-s">"Next.js"</span>, <span class="tok-s">"React"</span>, <span class="tok-s">"TypeScript"</span>],</span>
+<span class="line">  <span class="tok-p">backend</span>: [<span class="tok-s">"Node.js"</span>, <span class="tok-s">"Strapi v5"</span>, <span class="tok-s">"MongoDB"</span>],</span>
+<span class="line">  <span class="tok-p">shipsWith</span>: [<span class="tok-s">"Docker"</span>, <span class="tok-s">"cPanel"</span>, <span class="tok-s">"Vercel"</span>],</span>
+<span class="line">  <span class="tok-p">openTo</span>: <span class="tok-s">"remote &amp; global roles"</span>,</span>
+<span class="line">} <span class="tok-k">as const</span>;</span></code></pre>
+                        <figcaption class="code-window__status">
+                            <span><span class="status-dot" aria-hidden="true"></span>main</span>
+                            <span>TypeScript</span>
+                            <span>0 problems</span>
+                        </figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================ EXPERIENCE ============================ -->
+        <section class="section" id="experience" aria-labelledby="experience-title">
+            <div class="container">
+                <header class="section-head reveal">
+                    <p class="eyebrow"><span class="eyebrow__num">02</span>Experience</p>
+                    <h2 class="section-title" id="experience-title">Promoted from intern to full-time in six months.</h2>
+                    <p class="section-desc">One year at Valopt building, shipping and maintaining production web applications for the company and its clients.</p>
+                </header>
+
+                <article class="card exp reveal" aria-label="Valopt">
+                    <div class="exp__company">
+                        <span class="company-logo" aria-hidden="true">V</span>
+                        <h3 class="exp__name">Valopt</h3>
+                        <p class="exp__info">AI solutions company · Remote</p>
+                        <p class="exp__info exp__info--mono">Jan 2026 – Present</p>
+                        <span class="badge badge--success">
+                            <svg class="icon"><use href="#i-check-circle"/></svg> Intern → Full-time
+                        </span>
+                    </div>
+
+                    <ol class="roles">
+                        <li class="role role--current">
+                            <span class="role__dot" aria-hidden="true"></span>
+                            <div class="role__head">
+                                <h4 class="role__title">Full-Stack Developer</h4>
+                                <span class="role__time">Jul 2026 – Present</span>
+                            </div>
+                            <ul class="role__points">
+                                <li>Own end-to-end delivery of the company's <strong>official website and client projects</strong>, from UI in Next.js and TypeScript to content modeling in Strapi v5 and production deployment.</li>
+                                <li>Designed <strong>custom Strapi content types</strong> and API endpoints so non-developers can update site content without code changes, cutting content update time by <strong>95%</strong>.</li>
+                                <li>Containerized the Strapi backend with <strong>Docker</strong> and deployed it to cPanel, keeping environments consistent across <strong>dev and production</strong>.</li>
+                                <li>Managed production releases and resolved performance bottlenecks to deliver <strong class="nowrap">zero-downtime</strong> deployments.</li>
+                                <li>Collaborated in agile sprint planning and daily standups to <strong>deliver features</strong> on schedule.</li>
+                            </ul>
+                            <ul class="tags" aria-label="Technologies used">
+                                <li class="tag">Next.js</li><li class="tag">TypeScript</li><li class="tag">Strapi v5</li><li class="tag">REST APIs</li><li class="tag">Docker</li><li class="tag">cPanel</li>
+                            </ul>
+                        </li>
+
+                        <li class="role">
+                            <span class="role__dot" aria-hidden="true"></span>
+                            <div class="role__head">
+                                <h4 class="role__title">Frontend Developer Intern</h4>
+                                <span class="role__time">Jan 2026 – Jul 2026</span>
+                            </div>
+                            <ul class="role__points">
+                                <li>Rebuilt the company's official website with Next.js, TypeScript and Tailwind CSS, delivering modern, <strong>responsive pages</strong> with consistent cross-browser behavior.</li>
+                                <li>Built reusable UI components with Shadcn/UI and Tailwind CSS, reducing duplicated code across the project.</li>
+                                <li>Integrated Strapi v5 headless CMS with the frontend to <strong>render dynamic content</strong> through a configuration-driven approach.</li>
+                                <li>Improved page performance to a <strong>Lighthouse score of 92</strong> with load times <strong>under 2.1 seconds</strong>.</li>
+                                <li>Earned a <strong>full-time offer</strong> after the internship based on performance and work ethic.</li>
+                            </ul>
+                            <ul class="tags" aria-label="Technologies used">
+                                <li class="tag">Next.js</li><li class="tag">TypeScript</li><li class="tag">Tailwind CSS</li><li class="tag">Shadcn/UI</li><li class="tag">Strapi v5</li>
+                            </ul>
+                        </li>
+                    </ol>
+                </article>
+
+                <div class="exp-extra">
+                    <section class="card mini-card reveal" aria-labelledby="education-title">
+                        <h3 class="mini-card__title" id="education-title"><svg class="icon"><use href="#i-graduation"/></svg>Education</h3>
+                        <ul class="mini-list">
+                            <li><strong>M.Sc. Computer Science</strong><time>2024 – 2026</time><span>Pondicherry University</span></li>
+                            <li><strong>B.Sc. Computer Science</strong><time>2021 – 2024</time><span>St. Joseph's College of Arts and Science</span></li>
+                        </ul>
+                    </section>
+                    <section class="card mini-card reveal" style="--delay: 100ms" aria-labelledby="earlier-title">
+                        <h3 class="mini-card__title" id="earlier-title"><svg class="icon"><use href="#i-briefcase"/></svg>Earlier internships</h3>
+                        <ul class="mini-list">
+                            <li><strong>Web Development Intern</strong><time>2025</time><span>Cognifyz Technologies</span></li>
+                            <li><strong>Web Development Intern</strong><time>2023</time><span>Three Baboons Technologies</span></li>
+                        </ul>
+                    </section>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============================ PROJECTS ============================ -->
+        <section class="section" id="projects" aria-labelledby="projects-title">
+            <div class="container">
+                <header class="section-head reveal">
+                    <p class="eyebrow"><span class="eyebrow__num">03</span>Projects</p>
+                    <h2 class="section-title" id="projects-title">Selected work.</h2>
+                    <p class="section-desc">Production client work and personal builds that show how I approach UI, data and deployment.</p>
+                </header>
+
+                <!-- Featured: production work -->
+                <article class="card featured spotlight reveal" aria-labelledby="featured-title">
+                    <div class="featured__body">
+                        <p class="kicker"><span class="pulse pulse--sm" aria-hidden="true"></span>Featured · Production client work</p>
+                        <h3 class="featured__title" id="featured-title">Valopt Official Website</h3>
+                        <p class="featured__text">
+                            A complete rebuild of Valopt's company website, which I now maintain end to end. The Next.js and
+                            TypeScript frontend renders pages from custom Strapi v5 content types through a
+                            configuration-driven approach, so the team publishes updates without code changes. The Strapi
+                            backend runs in Docker on cPanel with <span class="nowrap">zero-downtime</span> releases.
+                        </p>
+
+                        <ul class="metrics" aria-label="Results">
+                            <li class="metric"><strong>95%</strong><span>faster content updates</span></li>
+                            <li class="metric"><strong>92</strong><span>Lighthouse score</span></li>
+                            <li class="metric"><strong>&lt;2.1s</strong><span>page load time</span></li>
+                        </ul>
+
+                        <ul class="tags" aria-label="Technologies used">
+                            <li class="tag">Next.js</li><li class="tag">TypeScript</li><li class="tag">Tailwind CSS</li><li class="tag">Shadcn/UI</li><li class="tag">Strapi v5</li><li class="tag">Docker</li><li class="tag">cPanel</li>
+                        </ul>
+
+                        <div class="featured__actions">
+                            <a class="btn btn-primary" href="https://valopt.ai" target="_blank" rel="noopener noreferrer">
+                                Visit live site <svg class="icon"><use href="#i-arrow-up-right"/></svg>
+                            </a>
+                            <a class="btn btn-secondary" href="#experience">See my role</a>
+                        </div>
+                    </div>
+
+                    <div class="featured__visual">
+                        <p class="pipeline__label">How it ships</p>
+                        <ol class="pipeline" aria-label="Delivery pipeline">
+                            <li class="pipe-node">
+                                <span class="pipe-node__icon"><svg class="icon"><use href="#i-users"/></svg></span>
+                                <span><strong>Content team</strong><small>Edits pages, no code needed</small></span>
+                            </li>
+                            <li class="pipe-node">
+                                <span class="pipe-node__icon pipe-node__icon--violet"><svg class="icon"><use href="#i-database"/></svg></span>
+                                <span><strong>Strapi v5 CMS</strong><small>Custom content types &amp; APIs</small></span>
+                                <span class="pipe-node__badge">Docker</span>
+                            </li>
+                            <li class="pipe-node">
+                                <span class="pipe-node__icon"><svg class="icon"><use href="#i-code"/></svg></span>
+                                <span><strong>Next.js + TypeScript</strong><small>Config-driven UI · Shadcn/UI</small></span>
+                                <span class="pipe-node__badge">Tailwind</span>
+                            </li>
+                            <li class="pipe-node pipe-node--live">
+                                <span class="pipe-node__icon"><svg class="icon"><use href="#i-cloud"/></svg></span>
+                                <span><strong>Production</strong><small>cPanel · zero-downtime releases</small></span>
+                                <span class="pipe-node__badge"><span class="pulse pulse--sm" aria-hidden="true"></span>Live</span>
+                            </li>
+                        </ol>
+                    </div>
+                </article>
+
+                <!-- Personal projects -->
+                <div class="projects-grid">
+                    <article class="card project spotlight reveal" aria-labelledby="movie-title">
+                        <div class="project__media">
+                            <div class="browser-bar" aria-hidden="true">
+                                <span class="dots"><i></i><i></i><i></i></span>
+                                <span class="browser-bar__url">movie-scout.onrender.com</span>
+                            </div>
+                            <img src="./assets/img/optimized/movie-scout.jpg" width="1200" height="546"
+                                 alt="Movie Scout home screen showing genre filters and a grid of movie posters with ratings"
+                                 loading="lazy" decoding="async">
+                        </div>
+                        <div class="project__body">
+                            <div class="project__head">
+                                <div>
+                                    <h3 class="project__title" id="movie-title">Movie Scout</h3>
+                                    <p class="project__type">Movie discovery app · React</p>
+                                </div>
+                                <div class="project__links">
+                                    <a class="icon-btn" href="https://movie-scout-xq7y.onrender.com/" target="_blank" rel="noopener noreferrer" aria-label="Movie Scout live demo"><svg class="icon"><use href="#i-arrow-up-right"/></svg></a>
+                                    <a class="icon-btn" href="https://github.com/syedajmaldev/Movie-scout" target="_blank" rel="noopener noreferrer" aria-label="Movie Scout source code on GitHub"><svg class="icon"><use href="#i-github"/></svg></a>
+                                </div>
+                            </div>
+                            <p class="project__text">
+                                A responsive, mobile-first movie discovery app with a dark UI, powered by the TMDB API for
+                                search, rich movie details and "Similar Movies" recommendations.
+                            </p>
+                            <ul class="checklist">
+                                <li><svg class="icon"><use href="#i-check"/></svg>LocalStorage-backed watchlist with shared state via Context API</li>
+                                <li><svg class="icon"><use href="#i-check"/></svg>Sub-500ms load times with 100+ users</li>
+                            </ul>
+                            <ul class="tags" aria-label="Technologies used">
+                                <li class="tag">React</li><li class="tag">Tailwind CSS</li><li class="tag">TMDB API</li><li class="tag">Axios</li><li class="tag">Context API</li>
+                            </ul>
+                        </div>
+                    </article>
+
+                    <article class="card project spotlight reveal" style="--delay: 100ms" aria-labelledby="blog-title">
+                        <div class="project__media">
+                            <div class="browser-bar" aria-hidden="true">
+                                <span class="dots"><i></i><i></i><i></i></span>
+                                <span class="browser-bar__url">ajmal-blog.onrender.com</span>
+                            </div>
+                            <img src="./assets/img/optimized/blog-platform.jpg" width="1200" height="571"
+                                 alt="Aj Blog home page with a welcome banner and featured article cards"
+                                 loading="lazy" decoding="async">
+                        </div>
+                        <div class="project__body">
+                            <div class="project__head">
+                                <div>
+                                    <h3 class="project__title" id="blog-title">Blog Platform</h3>
+                                    <p class="project__type">Full-stack web app · MERN</p>
+                                </div>
+                                <div class="project__links">
+                                    <a class="icon-btn" href="https://ajmal-blog.onrender.com" target="_blank" rel="noopener noreferrer" aria-label="Blog Platform live demo"><svg class="icon"><use href="#i-arrow-up-right"/></svg></a>
+                                    <a class="icon-btn" href="https://github.com/syedajmaldev/Blog-website" target="_blank" rel="noopener noreferrer" aria-label="Blog Platform source code on GitHub"><svg class="icon"><use href="#i-github"/></svg></a>
+                                </div>
+                            </div>
+                            <p class="project__text">
+                                A full-stack blogging platform where users create, read and manage posts, backed by a
+                                Node.js REST API and MongoDB.
+                            </p>
+                            <ul class="checklist">
+                                <li><svg class="icon"><use href="#i-check"/></svg>Full CRUD flows through a Node.js REST API</li>
+                                <li><svg class="icon"><use href="#i-check"/></svg>Responsive React components, deployed on Render</li>
+                            </ul>
+                            <ul class="tags" aria-label="Technologies used">
+                                <li class="tag">React</li><li class="tag">Node.js</li><li class="tag">MongoDB</li><li class="tag">REST API</li><li class="tag">Tailwind CSS</li>
+                            </ul>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- Smaller builds -->
+                <div class="more-projects reveal">
+                    <div class="more-projects__head">
+                        <h3 class="more-projects__title">More builds</h3>
+                        <a class="text-link" href="https://github.com/syedajmaldev" target="_blank" rel="noopener noreferrer">
+                            All repositories <svg class="icon"><use href="#i-arrow-up-right"/></svg>
+                        </a>
+                    </div>
+                    <ul class="row-list">
+                        <li class="row">
+                            <div>
+                                <h4 class="row__title">BMI Calculator</h4>
+                                <p class="row__text">Responsive Body Mass Index calculator with instant results and health guidance.</p>
+                                <ul class="row__tags" aria-label="Technologies used"><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">JavaScript</li></ul>
+                            </div>
+                            <div class="row__links">
+                                <a class="link-btn" href="https://bmi-calc-aj.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="BMI Calculator live demo">Live <svg class="icon"><use href="#i-arrow-up-right"/></svg></a>
+                                <a class="link-btn" href="https://github.com/syedajmaldev/bmi-calc" target="_blank" rel="noopener noreferrer" aria-label="BMI Calculator source code on GitHub">Code <svg class="icon"><use href="#i-github"/></svg></a>
+                            </div>
+                        </li>
+                        <li class="row">
+                            <div>
+                                <h4 class="row__title">This portfolio</h4>
+                                <p class="row__text">Dependency-free, accessible site with system-aware theming, inline SVG icons and optimized assets.</p>
+                                <ul class="row__tags" aria-label="Technologies used"><li class="tag">HTML</li><li class="tag">CSS</li><li class="tag">JavaScript</li></ul>
+                            </div>
+                            <div class="row__links">
+                                <a class="link-btn" href="https://github.com/syedajmaldev/portfolio" target="_blank" rel="noopener noreferrer" aria-label="Portfolio source code on GitHub">Code <svg class="icon"><use href="#i-github"/></svg></a>
+                            </div>
+                        </li>
                     </ul>
-                    <h3>Career Goal</h3>
-                    <p>Aspiring Full-Stack Developer and current Frontend Intern with expertise in the Next.js. Experienced in building responsive, configuration-driven web applications and modular UI components. Committed to writing clean, scalable code and leveraging modern AI-driven development workflows to deliver high-quality user experiences.</p>
-                </div>
-                <div class="about-right">
-                    <h3>Experience & Education</h3>
-                    <div class="timeline">
-                         <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <h4>Frontend Developer Intern </h4>
-                                <p> Valopt — 2026</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <h4>Web Development Intern</h4>
-                                <p>Cognifyz Technologies — 2025</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <h4>M.Sc. Computer Science</h4>
-                                <p>Pondicherry University — 2024–2026</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <h4>Web Development Intern</h4>
-                                <p>Three Baboons Technologies — 2023</p>
-                            </div>
-                        </div>
-                        <div class="timeline-item">
-                            <div class="timeline-dot"></div>
-                            <div class="timeline-content">
-                                <h4>B.Sc. Computer Science</h4>
-                                <p>St. Joseph’s College — 2021–2024</p>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
-    <section class="projects" id="projectlink">
-            <h2>Projects</h2>
-            <div class="project-grid">
-                <article class="project-card">
-                    <img src="assets/img/blog.png" alt="Aj Blog - Modern React blog application screenshot" loading="lazy">
-                    <div class="project-info">
-                        <h3>Aj Blog</h3>
-                        <p>Modern React blog app with create, edit, delete posts, clean UI, responsive design, and efficient state management.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">TailwindCSS</span>
-                            <span class="tech-tag">MongoDB</span>
-                        </div>
-                        <div class="project-buttons">
-                            <a href="https://ajmal-blog.onrender.com" target="_blank" class="btn-primary" rel="noopener noreferrer">Live Demo</a>
-                            <a href="https://github.com/aj-ajmal/Blog-website.git" target="_blank" class="btn-secondary" rel="noopener noreferrer">View Code</a>
-                        </div>
-                    </div>
-                </article>
 
-                 <article class="project-card">
-                    <img src="assets/img/Movie-Finder.png" alt="AjmalFlix – Movie Explorer Website - " loading="lazy">
-                    <div class="project-info">
-                        <h3>AjmalFlix – Movie Explorer </h3>
-                        <p>Dynamic movie discovery platform featuring "Similar Movies" recommendations, cast details, and persistent local storage for favorites..</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">React</span>
-                            <span class="tech-tag">API</span>
-                            <span class="tech-tag">Context API</span>
-                            <span class="tech-tag">Responsive</span>
-                        </div>
-                        <div class="project-buttons">
-                            <a href="https://movie-scout-xq7y.onrender.com/" target="_blank" class="btn-primary" rel="noopener noreferrer">Live Demo</a>
-                            <a href="https://github.com/aj-ajmal/Movie-scout" target="_blank" class="btn-secondary" rel="noopener noreferrer">View Code</a>
-                        </div>
-                    </div>
-                </article>
+        <!-- ============================ SKILLS ============================ -->
+        <section class="section" id="skills" aria-labelledby="skills-title">
+            <div class="container">
+                <header class="section-head reveal">
+                    <p class="eyebrow"><span class="eyebrow__num">04</span>Skills</p>
+                    <h2 class="section-title" id="skills-title">The stack I build and ship with.</h2>
+                    <p class="section-desc">Grouped by where each tool sits in the stack. Highlighted items are part of my daily production work.</p>
+                </header>
 
-                <article class="project-card">
-                    <img src="assets/img/BMI calc.png" alt="BMI Calculator - Responsive Body Mass Index calculator application" loading="lazy">
-                    <div class="project-info">
-                        <h3>BMI Calculator</h3>
-                        <p>A responsive BMI calculator that helps users calculate their Body Mass Index with instant
-                            results and health recommendations.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Responsive</span>
+                <div class="skills-grid">
+                    <article class="card skill-card spotlight reveal">
+                        <div class="skill-card__head">
+                            <span class="skill-card__icon"><svg class="icon"><use href="#i-code"/></svg></span>
+                            <h3 class="skill-card__title">Languages</h3>
                         </div>
-                        <div class="project-buttons">
-                            <a href="https://bmi-calc-aj.vercel.app/" target="_blank" class="btn-primary" rel="noopener noreferrer">Live Demo</a>
-                            <a href="https://github.com/aj-ajmal/bmi-calc.git" target="_blank"
-                                class="btn-secondary" rel="noopener noreferrer">View Code</a>
-                        </div>
-                    </div>
-                </article>
+                        <ul class="chips">
+                            <li class="chip chip--core">TypeScript</li>
+                            <li class="chip chip--core">JavaScript (ES6+)</li>
+                            <li class="chip">HTML5</li>
+                            <li class="chip">CSS3</li>
+                        </ul>
+                    </article>
 
-                <article class="project-card">
-                    <img src="assets/img/lighttheme.png" alt="Portfolio Website - Responsive portfolio with dark/light theme toggle" loading="lazy">
-                    <div class="project-info">
-                        <h3>Portfolio Website</h3>
-                        <p>Responsive portfolio website featuring dark/light theme toggle, smooth animations, and modern
-                            design principles.</p>
-                        <div class="tech-stack">
-                            <span class="tech-tag">HTML</span>
-                            <span class="tech-tag">CSS</span>
-                            <span class="tech-tag">JavaScript</span>
-                            <span class="tech-tag">Responsive</span>
+                    <article class="card skill-card spotlight reveal" style="--delay: 80ms">
+                        <div class="skill-card__head">
+                            <span class="skill-card__icon skill-card__icon--violet"><svg class="icon"><use href="#i-layers"/></svg></span>
+                            <h3 class="skill-card__title">Frameworks &amp; Libraries</h3>
                         </div>
-                        <div class="project-buttons">
-                            <a href="#" target="_blank" class="btn-primary" rel="noopener noreferrer">Live Demo</a>
-                            <a href="https://github.com/aj-ajmal/portfolio.git" target="_blank" class="btn-secondary" rel="noopener noreferrer">View Code</a>
+                        <ul class="chips">
+                            <li class="chip chip--core">Next.js</li>
+                            <li class="chip chip--core">React.js</li>
+                            <li class="chip chip--core">Tailwind CSS</li>
+                            <li class="chip">Shadcn/UI</li>
+                            <li class="chip">Axios</li>
+                            <li class="chip">Context API</li>
+                        </ul>
+                    </article>
+
+                    <article class="card skill-card spotlight reveal">
+                        <div class="skill-card__head">
+                            <span class="skill-card__icon skill-card__icon--emerald"><svg class="icon"><use href="#i-database"/></svg></span>
+                            <h3 class="skill-card__title">Backend &amp; CMS</h3>
                         </div>
-                    </div>
-                </article>
+                        <ul class="chips">
+                            <li class="chip chip--core">Strapi v5 (Headless CMS)</li>
+                            <li class="chip chip--core">Node.js</li>
+                            <li class="chip">REST APIs</li>
+                            <li class="chip">MongoDB</li>
+                        </ul>
+                    </article>
 
-
-            </div>
-        </section>
-    <section class="skills" id="skillslink">
-            <h2>Skills</h2>
-            <div class="skill-grid">
-                <div class="skill-item"><img src="assets/icons/html-5.png" alt="HTML5" loading="lazy"><p>HTML</p></div>
-                <div class="skill-item"><img src="assets/icons/css-3.png" alt="CSS3" loading="lazy"><p>CSS</p></div>
-                <div class="skill-item"><img src="assets/icons/js.png" alt="JavaScript" loading="lazy"><p>JavaScript</p></div>
-                <div class="skill-item"><img src="assets/icons/react.png" alt="React" loading="lazy"><p>React</p></div>
-                <div class="skill-item"><img src="assets/icons/tailwind.png" alt="Tailwind CSS" loading="lazy"><p>Tailwind</p></div>
-                <div class="skill-item"><img src="assets/icons/seo.png" alt="SEO" loading="lazy"><p>SEO</p></div>
-                <div class="skill-item"><img src="assets/icons/vscode.png" alt="VSCode" loading="lazy"><p>VSCode</p></div>
-                <div class="skill-item"><img src="assets/icons/git.png" alt="Git" loading="lazy"><p>Git</p></div>
-                <div class="skill-item"><img src="assets/icons/figma.png" alt="Figma" loading="lazy"><p>Figma</p></div>
-                <div class="skill-item"><img src="assets/icons/mongodb.png" alt="MongoDB" loading="lazy"><p>MongoDB</p></div>
-            </div>
-        </section>
-    <section class="certificates" id="certificateslink">
-            <h2>Certificates</h2>
-            <div class="certificates-grid">
-                <article class="certificate-card">
-                    <img src="assets/img/js meta.png" alt="Programming with JavaScript Certificate from Meta" loading="lazy">
-                    <h3>Programming with JavaScript</h3>
-                    <p>Covered variables, loops, functions, DOM, and event handling fundamentals.</p>
-                </article>
-                <article class="certificate-card">
-                    <img src="assets/img/MongoDB.png" alt="MongoDB Certificate from Google" loading="lazy">
-                    <h3>MongoDB -- Google</h3>
-                    <p>Learned MongoDB basics, CRUD operations, schema design, queries, and scalability.</p>
-                </article>
-                <article class="certificate-card">
-                    <img src="assets/img/web dev.png" alt="Web Development Certificate" loading="lazy">
-                    <h3>Web Development</h3>
-                    <p>Learned HTML, CSS, JavaScript, responsive design, and web development basics.</p>
-                </article>
-                <article class="certificate-card">
-                    <img src="assets/img/github.png" alt="Git and GitHub Certificate" loading="lazy">
-                    <h3>Git & GitHub</h3>
-                    <p>Version control, collaboration, branching, pull requests, open source, workflow.</p>
-                </article>
-                <article class="certificate-card">
-                    <img src="assets/img/NPTEL.png" alt="NPTEL Python Certificate" loading="lazy">
-                    <h3>The joy of computing using python</h3>
-                    <p>Explored Python basics, algorithms, problem-solving, and real-world applications.</p>
-                </article>
-                <article class="certificate-card">
-                    <img src="assets/img/linkedin cer.png" alt="LinkedIn Career Skills in Software Development Certificate" loading="lazy">
-                    <h3>Career Skills in Software Development</h3>
-                    <p>Learned teamwork, communication, problem-solving, agile methods, and essential software development career skills.</p>
-                </article>
-            </div>
-        </section>
-    <section class="contact" id="contactlink">
-            <h2>Let's Connect</h2>
-            <p class="contact-subtitle">Ready to collaborate? Reach out through any of these channels!</p>
-            <div class="contact-methods">
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-envelope"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h4>Email</h4>
-                        <a href="mailto:syedajmal1703@gmail.com">syedajmal1703@gmail.com</a>
-                    </div>
+                    <article class="card skill-card spotlight reveal" style="--delay: 80ms">
+                        <div class="skill-card__head">
+                            <span class="skill-card__icon skill-card__icon--sky"><svg class="icon"><use href="#i-box"/></svg></span>
+                            <h3 class="skill-card__title">DevOps &amp; Deployment</h3>
+                        </div>
+                        <ul class="chips">
+                            <li class="chip chip--core">Docker</li>
+                            <li class="chip chip--core">cPanel</li>
+                            <li class="chip">Vercel</li>
+                            <li class="chip">Render</li>
+                            <li class="chip">Git &amp; GitHub</li>
+                        </ul>
+                    </article>
                 </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-phone"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h4>Phone</h4>
-                        <a href="tel:+919080593283">+91 9080593283</a>
-                    </div>
-                </div>
-                <div class="contact-item">
-                    <div class="contact-icon">
-                        <i class="fas fa-map-marker-alt"></i>
-                    </div>
-                    <div class="contact-details">
-                        <h4>Location</h4>
-                        <p>Cuddalore, India</p>
-                    </div>
+
+                <div class="skills-note reveal">
+                    <span class="legend"><span class="legend__dot" aria-hidden="true"></span>Daily production stack</span>
+                    <span class="skills-note__sep" aria-hidden="true"></span>
+                    <span>Also working with: VS Code, Figma, SEO, Lighthouse audits, Agile/Scrum</span>
                 </div>
             </div>
-            <div class="social-links">
-                <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/syedajmal1703/" target="_blank" class="social-link linkedin" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                    <a href="mailto:syedajmal1703@gmail.com" class="social-link email" title="Email">
-                        <i class="fas fa-envelope"></i>
-                    </a>
-                    <a href="http://github.com/syedajmaldev/" target="_blank" class="social-link github" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://wa.me/919080593283" target="_blank" class="social-link whatsapp" title="WhatsApp">
-                        <i class="fab fa-whatsapp"></i>
-                    </a>
+        </section>
+
+        <!-- ============================ CERTIFICATIONS ============================ -->
+        <section class="section" id="certifications" aria-labelledby="certs-title">
+            <div class="container">
+                <header class="section-head reveal">
+                    <p class="eyebrow"><span class="eyebrow__num">05</span>Certifications</p>
+                    <h2 class="section-title" id="certs-title">Always learning.</h2>
+                    <p class="section-desc">Courses and bootcamps that shaped my fundamentals. Select a card to view the certificate.</p>
+                </header>
+
+                <ul class="certs-grid">
+                    <li class="reveal">
+                        <a class="card cert" href="./assets/img/MongoDB.png" target="_blank" rel="noopener" data-lightbox data-title="NoSQL Ninjas: MongoDB Edition">
+                            <span class="cert__media"><img src="./assets/img/optimized/cert-mongodb.jpg" width="800" height="572" alt="NoSQL Ninjas MongoDB Edition bootcamp certificate" loading="lazy" decoding="async"></span>
+                            <span class="cert__body">
+                                <span class="cert__issuer">DevTown × GDG VIT-AP</span>
+                                <span class="cert__title">NoSQL Ninjas: MongoDB Edition</span>
+                                <span class="cert__foot"><span>Sep 2025</span><span class="cert__view">View <svg class="icon"><use href="#i-arrow-up-right"/></svg></span></span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="reveal" style="--delay: 60ms">
+                        <a class="card cert" href="./assets/img/js%20meta.png" target="_blank" rel="noopener" data-lightbox data-title="Programming with JavaScript">
+                            <span class="cert__media"><img src="./assets/img/optimized/cert-meta-javascript.jpg" width="800" height="496" alt="Meta Programming with JavaScript course certificate" loading="lazy" decoding="async"></span>
+                            <span class="cert__body">
+                                <span class="cert__issuer">Meta · Coursera</span>
+                                <span class="cert__title">Programming with JavaScript</span>
+                                <span class="cert__foot"><span>Jun 2025</span><span class="cert__view">View <svg class="icon"><use href="#i-arrow-up-right"/></svg></span></span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="reveal" style="--delay: 120ms">
+                        <a class="card cert" href="./assets/img/web%20dev.png" target="_blank" rel="noopener" data-lightbox data-title="Web Development Crash Essentials">
+                            <span class="cert__media"><img src="./assets/img/optimized/cert-web-development.jpg" width="800" height="570" alt="Web Development Crash Essentials certificate of achievement" loading="lazy" decoding="async"></span>
+                            <span class="cert__body">
+                                <span class="cert__issuer">Mind Luster</span>
+                                <span class="cert__title">Web Development Crash Essentials</span>
+                                <span class="cert__foot"><span>Jun 2025</span><span class="cert__view">View <svg class="icon"><use href="#i-arrow-up-right"/></svg></span></span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="reveal">
+                        <a class="card cert" href="./assets/img/NPTEL.png" target="_blank" rel="noopener" data-lightbox data-title="The Joy of Computing Using Python (Elite)">
+                            <span class="cert__media"><img src="./assets/img/optimized/cert-nptel-python.jpg" width="800" height="460" alt="NPTEL Elite certificate for The Joy of Computing Using Python" loading="lazy" decoding="async"></span>
+                            <span class="cert__body">
+                                <span class="cert__issuer">NPTEL · IIT Madras</span>
+                                <span class="cert__title">The Joy of Computing Using Python (Elite)</span>
+                                <span class="cert__foot"><span>Oct 2024</span><span class="cert__view">View <svg class="icon"><use href="#i-arrow-up-right"/></svg></span></span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="reveal" style="--delay: 60ms">
+                        <a class="card cert" href="./assets/img/github.png" target="_blank" rel="noopener" data-lightbox data-title="Git &amp; GitHub Bootcamp">
+                            <span class="cert__media"><img src="./assets/img/optimized/cert-git-github.jpg" width="800" height="546" alt="LetsUpgrade Git and GitHub Bootcamp certificate" loading="lazy" decoding="async"></span>
+                            <span class="cert__body">
+                                <span class="cert__issuer">LetsUpgrade</span>
+                                <span class="cert__title">Git &amp; GitHub Bootcamp</span>
+                                <span class="cert__foot"><span>Sep 2024</span><span class="cert__view">View <svg class="icon"><use href="#i-arrow-up-right"/></svg></span></span>
+                            </span>
+                        </a>
+                    </li>
+                    <li class="reveal" style="--delay: 120ms">
+                        <a class="card cert" href="./assets/img/linkedin%20cer.png" target="_blank" rel="noopener" data-lightbox data-title="Introduction to Career Skills in Software Development">
+                            <span class="cert__media"><img src="./assets/img/optimized/cert-linkedin-career.jpg" width="800" height="422" alt="LinkedIn Learning certificate for Introduction to Career Skills in Software Development" loading="lazy" decoding="async"></span>
+                            <span class="cert__body">
+                                <span class="cert__issuer">LinkedIn Learning</span>
+                                <span class="cert__title">Career Skills in Software Development</span>
+                                <span class="cert__foot"><span>Aug 2024</span><span class="cert__view">View <svg class="icon"><use href="#i-arrow-up-right"/></svg></span></span>
+                            </span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============================ CONTACT ============================ -->
+        <section class="section" id="contact" aria-labelledby="contact-title">
+            <div class="container">
+                <div class="card contact reveal">
+                    <div class="contact__copy">
+                        <p class="eyebrow"><span class="eyebrow__num">06</span>Contact</p>
+                        <h2 class="contact__title" id="contact-title">Let's build something <span class="text-gradient">together.</span></h2>
+                        <p class="contact__text">
+                            I'm open to remote and global full-stack roles, as well as freelance and contract work.
+                            Tell me about your product, your team or your idea.
+                        </p>
+                        <div class="contact__actions">
+                            <a class="btn btn-primary btn-lg" href="mailto:syedajmal1703@gmail.com">
+                                <svg class="icon"><use href="#i-mail"/></svg> Email me
+                            </a>
+                            <button class="btn btn-secondary btn-lg copy-btn" type="button" data-copy="syedajmal1703@gmail.com">
+                                <svg class="icon icon--copy"><use href="#i-copy"/></svg>
+                                <svg class="icon icon--copied"><use href="#i-check"/></svg>
+                                <span data-copy-label>Copy email</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <ul class="channels" aria-label="Contact channels">
+                        <li>
+                            <a class="channel" href="mailto:syedajmal1703@gmail.com">
+                                <span class="channel__icon"><svg class="icon"><use href="#i-mail"/></svg></span>
+                                <span><span class="channel__label">Email</span><span class="channel__value">syedajmal1703@gmail.com</span></span>
+                                <svg class="icon channel__arrow"><use href="#i-arrow-up-right"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="channel" href="https://www.linkedin.com/in/syedajmal1703/" target="_blank" rel="noopener noreferrer">
+                                <span class="channel__icon"><svg class="icon"><use href="#i-linkedin"/></svg></span>
+                                <span><span class="channel__label">LinkedIn</span><span class="channel__value">in/syedajmal1703</span></span>
+                                <svg class="icon channel__arrow"><use href="#i-arrow-up-right"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="channel" href="https://github.com/syedajmaldev" target="_blank" rel="noopener noreferrer">
+                                <span class="channel__icon"><svg class="icon"><use href="#i-github"/></svg></span>
+                                <span><span class="channel__label">GitHub</span><span class="channel__value">github.com/syedajmaldev</span></span>
+                                <svg class="icon channel__arrow"><use href="#i-arrow-up-right"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="channel" href="tel:+919080593283">
+                                <span class="channel__icon"><svg class="icon"><use href="#i-phone"/></svg></span>
+                                <span><span class="channel__label">Phone</span><span class="channel__value">+91 90805 93283</span></span>
+                                <svg class="icon channel__arrow"><use href="#i-arrow-up-right"/></svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="channel" href="https://wa.me/919080593283" target="_blank" rel="noopener noreferrer">
+                                <span class="channel__icon"><svg class="icon"><use href="#i-message"/></svg></span>
+                                <span><span class="channel__label">WhatsApp</span><span class="channel__value">Message me directly</span></span>
+                                <svg class="icon channel__arrow"><use href="#i-arrow-up-right"/></svg>
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; <span id="current-year"></span> Syed Ajmal. All rights reserved.</p>
+
+    <!-- ============================ FOOTER ============================ -->
+    <footer class="site-footer">
+        <div class="container site-footer__inner">
+            <p>&copy; <span data-year>2026</span> Syed Ajmal. Built with HTML, CSS &amp; vanilla JavaScript.</p>
+            <ul class="socials" aria-label="Social profiles">
+                <li><a class="social" href="https://github.com/syedajmaldev" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile"><svg class="icon"><use href="#i-github"/></svg></a></li>
+                <li><a class="social" href="https://www.linkedin.com/in/syedajmal1703/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile"><svg class="icon"><use href="#i-linkedin"/></svg></a></li>
+                <li><a class="social" href="mailto:syedajmal1703@gmail.com" aria-label="Send an email"><svg class="icon"><use href="#i-mail"/></svg></a></li>
+            </ul>
+        </div>
     </footer>
+
+    <a class="to-top" href="#home" data-to-top aria-label="Back to top">
+        <svg class="icon"><use href="#i-arrow-up"/></svg>
+    </a>
+
+    <!-- Certificate viewer -->
+    <dialog class="lightbox" id="cert-dialog" aria-labelledby="cert-dialog-title">
+        <div class="lightbox__head">
+            <p class="lightbox__title" id="cert-dialog-title" data-dialog-title>Certificate</p>
+            <button class="icon-btn" type="button" data-dialog-close aria-label="Close certificate viewer">
+                <svg class="icon"><use href="#i-x"/></svg>
+            </button>
+        </div>
+        <img class="lightbox__img" alt="" decoding="async">
+    </dialog>
+
+    <p class="sr-only" aria-live="polite" data-live></p>
+
     <script src="script.js" defer></script>
 </body>
 
